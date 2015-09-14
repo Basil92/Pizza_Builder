@@ -233,7 +233,6 @@ Module.tmpPizza = {
 	}
 };
 
-
 Module.radioForSize = document.querySelector("input[name='size']:checked")
 	.value;
 Module.objBascet = document.getElementById("Bascet");
@@ -251,12 +250,7 @@ Module.meat = 0;
 //count of vegetable's components
 Module.vegetable = 0;
 
-
-
-
-
 Module.generateCurrentPizza = function(){
-
 	Module.objCurrentPizza.innerHTML = '<div class="panel-heading">' 
 		+ Module.tmpPizza.Base.sizeUA + ' - ' + Module.tmpPizza.Base.prise
 		+ 'грн - ' + Module.tmpPizza.Base.calorise + ' кКал '
@@ -291,18 +285,15 @@ Module.generateCurrentPizza = function(){
 };
 Module.clearCurrentPizza= function (){
 	document.getElementById("CurrentPizza").innerHTML = "";
+
 };
 Module.clearBascet = function (){
 	document.getElementById("Bascet").innerHTML = "";
 	document.getElementById("Bill").innerHTML = ""
 	Module.bascet = new Array();
-	// Module.allPrise = 0;
-	// Module.allCalorise = 0;
-
 };
 
 Module.increaseComponents = function (e){
-
 	var componentBlock = e.target.closest("div[id]");
 	var textInCountOfComponent = componentBlock
 		.getElementsByTagName("span")[0];
@@ -440,23 +431,12 @@ Module.inBascet = function (){
 	Module.vegetable = 0;
 	Module.clearCurrentPizza();
 	Module.generateCurrentPizza();
-	//clear parameters in DOC
-	// Module.idCountOfComponents.innerHTML = 0;
-	// Module.idVegetableCounter.innerHTML = 0;
-	// Module.idMeatCounter.innerHTML = 0;
-	// Module.countOfComponents.innerHTML = 0;
-	// Module.idDifferenceOfComponents.innerHTML = 0;
-	// textInCountOfComponent.innerHTML = 0
-
-	//add in bascet and output to screen
 	Module.bascet.push(newObject);
 	Module.generateBascet();
-}
+};
 Module.final = function (){
 	alert("final");
-}
-
-
+};
 
 //add event listener for change SIZE
 Module.choosePizza = document.querySelectorAll("input[name='size']");
