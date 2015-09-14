@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Create Pizza !!!</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- My personal style-->
+    <link href="bootstrap/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Вибрати піцу лекше, ніж коли-небудь <span class="glyphicon glyphicon-heart"></span>
+      <small>На нашому сайті Ви зможете самі вибрати розмір та вміст піци за одну хвилину </small></h1>
+    </header>
+
+    <article>
+    <div class="row">
+      <h1>ПЛАТФОРМА ДЛЯ ПІЦИ</h1>
+    <div class="col-md-8 col-md-offset-2">
+      <form id="top">
+
+        <!-- SIZE OF PIZZA -->
+        <div class="row form-group">
+
+          <div class="col-md-4">
+            <label for="Small"> Маленька 
+            <p class="ParamOfBases"></p>
+            
+            <input type="radio" name="size" value="Small" id="Small"><img src="img/S_pizza.png" class="img-thumbnail" /></input>
+            </label>
+          </div>
+          <div class="col-md-4 form-group">
+            <label for="Middle"> Середня 
+            <p class="ParamOfBases"></p>
+            
+            <input type="radio" name="size" value="Middle" id="Middle"><img src="img/M_pizza.png" class="img-thumbnail" /></input>
+            </label>
+          </div>
+          <div class="col-md-4 form-group">
+            <label for="Large"> Велика 
+            <p class="ParamOfBases"></p>
+              
+            <input type="radio" name="size" value="Large" id="Large"checked ><img src="img/L_pizza.png" class="img-thumbnail" /></input>
+            </label>
+          </div>
+        </div>
+            <!-- COMPONENTS OF PIZZA -->
+
+        <!-- CONTAINER FOR TAB  -->
+        <div class="containerForComponents">
+          <!-- CONTAINER FOR PANELS IN TAB -->
+            <div class="row">
+              <h1>КОМПОНЕНТИ ДЛЯ ПІЦИ</h1>
+              <ul class="nav nav-tabs col-md-12 " role="tablist">
+                <li class="active"><a href="#Meat" role="tab" data-toggle="tab">М'ясо та сири <span class="badge pull-right" id="MeatCounter">0</span></a></li>
+                <li ><a href="#Vegetables" role="tab" data-toggle="tab">Овочі та фрукти <span class="badge pull-right" id ="VegetablesCounter">0</span></a></li>
+              </ul>
+            </div>
+          
+          
+          <!-- CONTAINER FOR CONTENT IN TAB -->
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="Meat">
+              <div class="row form-group">
+                <div class="col-md-3 form-group " id ="Cheese" >
+                  <p> Сир <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/cheese.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group" id="Chicken">
+                  <p> Курка <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Chicken.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group" id="Peperoni">
+                  <p> Пепероні<span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/peperoni.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group" id="Bekon">
+                  <p > Бекон<span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Bekon.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group " id="Bavar">
+                  <p> Баварські сосиски <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/bavar.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group " id ="Feta" >
+                  <p> Фета <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/feta.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group " id ="Mocarella" >
+                  <p> Моцарелла <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Mocarella.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group " id ="Donablu" >
+                  <p> Данаблю <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Donablu.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group " id ="Parmezan" >
+                  <p> Пармезан <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Parmezan.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group " id ="Cheder" >
+                  <p> Чедер <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Cheder.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group " id ="Tunny" >
+                  <p> Тунець <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Tunny.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+                <div class="col-md-3 form-group " id ="Ham" >
+                  <p> Шинка <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Ham.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="Vegetables">
+              <div class="row form-group">
+                <div class="col-md-3 form-group " id="Ananas">
+                  <p> Ананас<span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/ananas.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group" id="Salat">
+                  <p> Салат<span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/salat.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group" id="Tomato">
+                  <p> Помідори<span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/tomato.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group " id="Pepper">
+                  <p> Перець <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/pepper.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group " id="Olives">
+                  <p> Оливки <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/olives.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group " id="Cucumber">
+                  <p> Огірок <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Cucumber.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group " id="Corn">
+                  <p> Кукурудза <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Corn.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+                <div class="col-md-3 form-group " id="Onion">
+                  <p> Цибуля <span class="badge pull-right">0</span></p>
+                  <p class="valueOf"></p>
+                  <img src="img/Onion.jpg" class="img-thumbnail" />
+                  <div class="btn-group">
+                    <button type="button" class="decreaseComponents btn btn-default">-</button>
+                    <button type="button" class="increaseComponents btn btn-default">+</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+
+        <!-- CONTACTS AND OTHER -->
+        <div>
+        <!-- <div class="row"> -->
+          <!-- <div class="col-md-10 col-md-offset-1 "> -->
+            <p> Максимальна кількість компонентів в піці - 10. У вашій піці : <span id="countOfComponents" class="badge">0</span> Ви можете додати ще <span id="differenceOfComponents" class="badge">10</span> компонент(ів)</p>
+          <!-- </div> -->
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-6 ">
+            <h4>Ваше замовлення:
+              <!-- <button type="button" id="ClearBascet" class="btn btn-link">Очистити корзину</button> -->
+              <button class="close" id="ClearBascet">X</button>
+            </h4>
+            <div id="Bascet" class="panel panel-primary"> 
+            </div>
+            <p id = "Bill"></p>
+          </div>
+
+
+          <div class="col-md-6 form-group">
+
+            <h4> Поточна піца: 
+              <!-- <button type="button" id="ClearCurrentPizza" class="btn btn-link">Очистити поточну піцу</button> -->
+            </h4>
+
+            <div id="CurrentPizza" class="panel panel-primary">
+            </div>  
+
+
+            <label for="inBascet"></label>
+            <a href="#top" >
+            <button type="button" class="btn btn-danger btn-block" id="inBascet" >Окей, але я хочу ще одну піцу</button>
+            </a>
+            <h4>Введіть контактні дані, якщо вибрали все що хотіли</h4>
+            <label for="Name">Введіть Ваше ім'я</label></br>
+            <input type="text" id="Name" placeholder="Ваше ім'я" class="form-control"></input>
+          
+            <label for="PhoneNumber">Введіть Ваш телефон в такому форматі: +38(063)333-33-33</label></br>
+            <input type="tel" id="PhoneNumber" placeholder="+38(063)333-33-33" class="form-control" 
+            pattern="\+38\(\d{3}\)\d{3}-\d{2}-\d{2}"
+            title="+38(063)333-33-33"></input>
+          
+            <label for="Address">Адреса</label></br>
+            <textarea class="form-control"  id="Address" placeholder="Київ, вул. Маршала Тимоенко, буд. 66, 1 підїзд, кв. 41" rows="3"></textarea>
+
+            <label for="Description">Примітка</label></br>
+            <textarea class="form-control"  id="Description" placeholder="Побільше перцю мені, люблю щоб було жарко ;)" rows="3"></textarea>
+                    
+            <label for="Button"></label>
+            <button type="submit" class="btn btn-lg btn-danger center-block btn-md" id="Button">Несіть їжу мені хутчіш!!!</button>
+          </div>
+
+        </div>
+
+      </form>
+
+
+    </div>
+    </div>
+    </article>
+
+
+
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="bootstrap/js/Module.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+body {
+   margin: 0 15px;
+}
+
+.tab-pane .row .col-md-3 {
+	border: 1px solid #E0E0E0  ;
+}
+
+a .btn {
+	color: white;
+	text-decoration: none;
+}
+
+label p{
+	font-weight: normal;
+}
+
+#differenceOfComponents{
+	background-color: red;
+}
+#countOfComponents{
+	background-color: green;
+}
+
+.row h1 {
+	text-align: center;
+}
+
+td img {
+	height: 50%;
+}
