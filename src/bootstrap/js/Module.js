@@ -236,10 +236,10 @@ Module.tmpPizza = {
 Module.radioForSize = document.querySelector("input[name='size']:checked")
 	.value;
 Module.objBascet = document.getElementById("Bascet");
-Module.idCountOfComponents = document.getElementById("countOfComponents");
-Module.idVegetableCounter = document.getElementById("VegetablesCounter");
-Module.idMeatCounter = document.getElementById("MeatCounter");
-Module.idDifferenceOfComponents = document
+Module.objCountOfComponents = document.getElementById("countOfComponents");
+Module.objVegetableCounter = document.getElementById("VegetablesCounter");
+Module.objMeatCounter = document.getElementById("MeatCounter");
+Module.objDifferenceOfComponents = document
 	.getElementById("differenceOfComponents");
 Module.tmpPizza.Base = Module.pizzaSize[Module.radioForSize];
 Module.objCurrentPizza = document.getElementById("CurrentPizza");
@@ -261,20 +261,20 @@ Module.generateCurrentPizza = function(){
 	var calorise = Module.tmpPizza.Base.calorise; 
 	var prise = Module.tmpPizza.Base.prise;
 	var comp = 0;
-	for ( var component in Module.components){
-		if(Module.tmpPizza[component].count===0) continue;
-		calorise += Module.components[component].calories
-			*Module.tmpPizza[component].count;
-		prise += Module.components[component].prise
-			*Module.tmpPizza[component].count;
-		comp += Module.tmpPizza[component].count;
+	for ( var nameOfComponent in Module.components){
+		if(Module.tmpPizza[nameOfComponent].count===0) continue;
+		calorise += Module.components[nameOfComponent].calories
+			*Module.tmpPizza[nameOfComponent].count;
+		prise += Module.components[nameOfComponent].prise
+			*Module.tmpPizza[nameOfComponent].count;
+		comp += Module.tmpPizza[nameOfComponent].count;
 		table.innerHTML 
-			+= "<tr><td>" + Module.components[component].nameUA
-			+ "</td><td>" + Module.components[component].prise 
-			+ " грн</td><td>" + Module.components[component].calories 
+			+= "<tr><td>" + Module.components[nameOfComponent].nameUA
+			+ "</td><td>" + Module.components[nameOfComponent].prise 
+			+ " грн</td><td>" + Module.components[nameOfComponent].calories 
 			+ " KKaл</td><td>"	+ "<img src =\" img/" 
-			+ Module.components[component].name + ".jpg\"/> </td><td> "
-			+ "x " + Module.tmpPizza[component].count + " шт.</td></tr>"; 
+			+ Module.components[nameOfComponent].name + ".jpg\"/> </td><td> "
+			+ "x " + Module.tmpPizza[nameOfComponent].count + " шт.</td></tr>"; 
 	}
 	table.innerHTML += "<tr><td> Сумарна кількість</td><td> " + prise 
 		+ " грн. </td><td> " + calorise + " ККал </td><td></td><td> " 
@@ -285,6 +285,9 @@ Module.generateCurrentPizza = function(){
 };
 Module.clearCurrentPizza= function (){
 	document.getElementById("CurrentPizza").innerHTML = "";
+	for (var nameOfComponent in Module.tmpPizza){
+		Module.tmpPizza[nameOfComponent].count = 0;
+	};
 
 };
 Module.clearBascet = function (){
@@ -311,18 +314,18 @@ Module.increaseComponents = function (e){
 	//Output to web page count of component
 	textInCountOfComponent.innerHTML = countOfComponent;
 	//Output to web page count of ALL components and difference
-	Module.idCountOfComponents.innerHTML = Module.countOfComponents;
-	Module.idDifferenceOfComponents.innerHTML = Module.maxCount 
+	Module.objCountOfComponents.innerHTML = Module.countOfComponents;
+	Module.objDifferenceOfComponents.innerHTML = Module.maxCount 
 		- Module.countOfComponents;
 	//Meat counter
-	Module.idMeatCounter.innerHTML = (function(){
+	Module.objMeatCounter.innerHTML = (function(){
 		if (Module.components[e.target.closest("div[id]").id].group=="meat"){
 			Module.meat ++;
 		}
 		return Module.meat;
 	})();
 	//Vegetable counter
-	Module.idVegetableCounter.innerHTML = (function(){
+	Module.objVegetableCounter.innerHTML = (function(){
 		Module.vegetable = Module.countOfComponents - Module.meat;
 		return Module.vegetable;
 	})();
@@ -346,18 +349,18 @@ Module.decreaseComponents = function (e){
 	//Output to web page count of component
 	textInCountOfComponent.innerHTML = countOfComponent;
 	//Output to web page count of ALL components and difference
-	Module.idCountOfComponents.innerHTML = Module.countOfComponents;
-	Module.idDifferenceOfComponents.innerHTML
+	Module.objCountOfComponents.innerHTML = Module.countOfComponents;
+	Module.objDifferenceOfComponents.innerHTML
 		= Module.maxCount - Module.countOfComponents;
 	//Meat counter
-	Module.idMeatCounter.innerHTML = (function(){
+	Module.objMeatCounter.innerHTML = (function(){
 		if (Module.components[e.target.closest("div[id]").id].group=="meat"){
 			Module.meat --;
 		}
 		return Module.meat;
 	})();
 	//Vegetable counter
-	Module.idVegetableCounter.innerHTML = (function(){
+	Module.objVegetableCounter.innerHTML = (function(){
 		Module.vegetable = Module.countOfComponents - Module.meat;
 		return Module.vegetable;
 	})();
@@ -422,8 +425,8 @@ Module.inBascet = function (){
 		classBadge[i].innerHTML = 0;
 	};
 	
-	for (var i in Module.tmpPizza){
-		Module.tmpPizza[i].count = 0;
+	for (var nameOfComponent in Module.tmpPizza){
+		Module.tmpPizza[nameOfComponent].count = 0;
 		
 	};
 	Module.countOfComponents = 0;
