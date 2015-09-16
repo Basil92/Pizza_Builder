@@ -254,7 +254,7 @@ Module.generateCurrentPizza = function(){
 	Module.objCurrentPizza.innerHTML = '<div class="panel-heading">' 
 		+ Module.tmpPizza.Base.sizeUA + ' - ' + Module.tmpPizza.Base.prise
 		+ 'грн - ' + Module.tmpPizza.Base.calorise + ' кКал '
-		+ '<button class="close" id="ClearCurrentPizza">X</button>'
+		+ '<button class="close" id="ClearCurrentPizza" type="button">X</button>'
 		+ '</div><table class="table table-striped" \
 		id="TableForCurrentPizza"></table>';
 	var table = document.getElementById('TableForCurrentPizza');
@@ -295,6 +295,15 @@ Module.clearBascet = function (){
 	document.getElementById("Bill").innerHTML = ""
 	Module.bascet = new Array();
 };
+
+Module.clearBascetEl = function (e){
+	
+	console.log(e.target.value);
+	Module.bascet.splice(e.target.value,1);
+	document.getElementById("Bascet").innerHTML = "";
+	document.getElementById("Bill").innerHTML = ""
+	Module.generateBascet();
+}
 
 Module.increaseComponents = function (e){
 	var componentBlock = e.target.closest("div[id]");
@@ -369,7 +378,7 @@ Module.decreaseComponents = function (e){
 
 Module.changeSize = function (e){
 	Module.tmpPizza.Base = Module.pizzaSize[document
-		.querySelector("input[name='size']:checked").value]//.size;
+		.querySelector("input[name='size']:checked").value];
 	Module.generateCurrentPizza();
 }
 
@@ -380,6 +389,7 @@ Module.generateBascet = function() {
 
 	for (var j in Module.bascet){
 		var myId = "TableForBascet"+j,
+			// myButtonId = "Button"+j,
 			calorise = Module.bascet[j].Base.calorise,
 			prise = Module.bascet[j].Base.prise,
 			comp = 0;
@@ -387,11 +397,12 @@ Module.generateBascet = function() {
 		Module.objBascet.innerHTML += '<div class="panel-heading">' 
 			+ Module.bascet[j].Base.sizeUA + ' - ' + prise + ' грн - ' 
 			+ calorise + ' кКал '
-			+ '<button class="close" id=\"' + j + '\">X</button>'
-			+ "</div><table class='table table-striped' id=\"" + myId + "\"> \
+			+ '<button  id="del' + j + '" value="' + j + '" class="close" type="button">X</button>'
+			+ "</div><table class='table table-striped' id=\"" + myId + "\" > \
 			</table>";
-
+		
 		var table = document.getElementById(myId);
+		
 
 		for(var i in Module.components){
 			if(Module.bascet[j][i].count === 0) continue;
@@ -411,8 +422,15 @@ Module.generateBascet = function() {
 		Module.allPrise += prise;
 		Module.allCalorise += calorise;	
 	};
+		
+	for (var j in Module.bascet){
+		document.getElementById("del"+j).addEventListener("click", Module.clearBascetEl , false);
+	}
+
 	document.getElementById("Bill").innerHTML = "Вартість замовлення: " 
 		+ Module.allPrise + " грн. Сумарно калорій: " + Module.allCalorise;
+
+
 };
 
 Module.inBascet = function (){
@@ -436,6 +454,7 @@ Module.inBascet = function (){
 	Module.generateCurrentPizza();
 	Module.bascet.push(newObject);
 	Module.generateBascet();
+
 };
 Module.final = function (){
 	alert("final");
@@ -483,3 +502,4 @@ document.getElementById("ClearBascet")
 	}
 	Module.generateCurrentPizza();
 })();
+	
